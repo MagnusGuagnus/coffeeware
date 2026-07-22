@@ -5,6 +5,7 @@ import SiteFooter from '../landing/SiteFooter'
 import Reveal from '../landing/Reveal'
 import CtaStrip from '../landing/CtaStrip'
 import TeamValues from '../landing/TeamValues'
+import TeamSteps from '../landing/TeamSteps'
 
 type Member = {
   name: string
@@ -65,6 +66,9 @@ export default function TeamPage() {
 
         {/* Section 1: Values / strengths — pinned vertical carousel */}
         <TeamValues />
+
+        {/* Steps: zigzag dashed path */}
+        <TeamSteps />
 
         {/* Members */}
         <section className="bg-cream py-20 md:py-28">
