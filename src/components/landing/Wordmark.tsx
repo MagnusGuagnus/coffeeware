@@ -11,10 +11,10 @@ export default function Wordmark({ className = '', onLight = false }: WordmarkPr
   return (
     <span
       className={`font-display font-bold lowercase tracking-tight ${
-        onLight ? 'text-ink' : 'text-cream'
+        onLight ? 'text-cw-black' : 'text-cw-white'
       } ${className}`}
     >
-      coffeeware<span className="text-orange">;</span>
+      coffeeware<span className="text-cw-secondary">;</span>
     </span>
   )
 }

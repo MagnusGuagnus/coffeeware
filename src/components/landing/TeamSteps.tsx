@@ -43,14 +43,14 @@ const STEPS: Step[] = [
 
 export default function TeamSteps() {
   return (
-    <section aria-label="Come lavoriamo" className="bg-cream pb-20 md:pb-28">
+    <section aria-label="Come lavoriamo" className="bg-cw-white pb-20 md:pb-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-balance font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
+          <h2 className="text-balance font-display text-4xl font-bold leading-[1.05] text-cw-black md:text-5xl">
             Il percorso in cinque step
-            <span className="text-orange">;</span>
+            <span className="text-cw-secondary">;</span>
           </h2>
-          <p className="mt-5 text-pretty text-lg leading-relaxed text-muted">
+          <p className="mt-5 text-pretty text-lg leading-relaxed text-cw-gray">
             Dal primo confronto al supporto post-rilascio, seguiamo un processo
             chiaro e collaudato.
           </p>
@@ -68,7 +68,7 @@ export default function TeamSteps() {
             <path
               d="M 27 12 C 27 24, 73 24, 73 36 C 73 48, 27 48, 27 60 C 27 72, 73 72, 73 84 C 73 96, 27 96, 27 108"
               fill="none"
-              stroke="var(--color-orange)"
+              stroke="var(--color-cw-secondary)"
               strokeWidth={2}
               strokeLinecap="round"
               strokeDasharray="1 5"
@@ -92,20 +92,20 @@ export default function TeamSteps() {
                   style={{ gridRow: `${i + 1}` }}
                 >
                   <Reveal delay={i * 0.06}>
-                    <article className="group relative flex gap-5 rounded-3xl border border-ink/10 bg-white/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange/40 hover:shadow-lg md:p-7">
+                    <article className="group relative flex gap-5 rounded-3xl border border-cw-black/10 bg-white/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-cw-secondary/40 hover:shadow-lg md:p-7">
                       <div className="flex shrink-0 flex-col items-center">
-                        <span className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-orange/15 text-orange">
+                        <span className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-cw-secondary/15 text-cw-secondary">
                           <Icon size={26} />
-                          <span className="absolute -right-2 -top-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-orange text-xs font-bold text-cream">
+                          <span className="absolute -right-2 -top-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-cw-secondary text-xs font-bold text-cw-white">
                             {i + 1}
                           </span>
                         </span>
                       </div>
                       <div className="min-w-0">
-                        <h3 className="font-display text-xl font-semibold text-ink md:text-2xl">
+                        <h3 className="font-display text-xl font-semibold text-cw-black md:text-2xl">
                           {s.title}
                         </h3>
-                        <p className="mt-2 text-pretty text-sm leading-relaxed text-muted md:text-base">
+                        <p className="mt-2 text-pretty text-sm leading-relaxed text-cw-gray md:text-base">
                           {s.description}
                         </p>
                       </div>

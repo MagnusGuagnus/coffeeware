@@ -9,7 +9,7 @@ import SiteFooter from './SiteFooter'
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cw-white">
       <SiteHeader />
       <main>
         <Hero />

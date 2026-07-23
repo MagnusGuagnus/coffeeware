@@ -92,7 +92,7 @@ export default function ContactModal({
           transition={{ duration: 0.2 }}
         >
           <div
-            className="absolute inset-0 bg-ink/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-cw-black/60 backdrop-blur-sm"
             onClick={onClose}
             aria-hidden
           />
@@ -101,7 +101,7 @@ export default function ContactModal({
             role="dialog"
             aria-modal="true"
             aria-label="Contatta Coffeeware"
-            className="relative flex max-h-[92vh] w-full max-w-lg flex-col overflow-hidden rounded-t-3xl bg-cream shadow-2xl sm:rounded-3xl"
+            className="relative flex max-h-[92vh] w-full max-w-lg flex-col overflow-hidden rounded-t-3xl bg-cw-white shadow-2xl sm:rounded-3xl"
             initial={{ y: 40, opacity: 0, scale: 0.98 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: 40, opacity: 0, scale: 0.98 }}
@@ -110,7 +110,7 @@ export default function ContactModal({
             <button
               type="button"
               onClick={onClose}
-              className="absolute right-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-ink/5 text-ink/70 transition-colors hover:bg-ink/10"
+              className="absolute right-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-cw-black/5 text-cw-black/70 transition-colors hover:bg-cw-black/10"
               aria-label="Chiudi"
             >
               <X size={18} />
@@ -119,13 +119,13 @@ export default function ContactModal({
             <div className="overflow-y-auto px-6 pb-6 pt-7 sm:px-8 sm:pb-8">
               {submitted ? (
                 <div className="flex flex-col items-center py-8 text-center">
-                  <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-orange/15 text-orange">
+                  <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-cw-secondary/15 text-cw-secondary">
                     <Check size={26} />
                   </span>
-                  <h3 className="mt-5 font-display text-2xl font-bold text-ink">
+                  <h3 className="mt-5 font-display text-2xl font-bold text-cw-black">
                     Grazie, ci sentiamo presto
                   </h3>
-                  <p className="mt-2 max-w-sm text-pretty text-sm leading-relaxed text-muted">
+                  <p className="mt-2 max-w-sm text-pretty text-sm leading-relaxed text-cw-gray">
                     Questa è un&apos;anteprima, quindi non è stato inviato nulla.
                     Nella versione online ti ricontattiamo entro un giorno
                     lavorativo.
@@ -133,30 +133,30 @@ export default function ContactModal({
                   <button
                     type="button"
                     onClick={onClose}
-                    className="mt-6 rounded-full bg-petrol px-6 py-3 text-sm font-semibold text-cream transition-transform hover:-translate-y-0.5"
+                    className="mt-6 rounded-full bg-cw-primary px-6 py-3 text-sm font-semibold text-cw-white transition-transform hover:-translate-y-0.5"
                   >
                     Chiudi
                   </button>
                 </div>
               ) : (
                 <>
-                  <h2 className="mt-1 font-display text-2xl font-bold text-ink">
+                  <h2 className="mt-1 font-display text-2xl font-bold text-cw-black">
                     Scambiamo due chiacchiere
                   </h2>
-                  <p className="mt-2 text-pretty text-sm leading-relaxed text-muted">
+                  <p className="mt-2 text-pretty text-sm leading-relaxed text-cw-gray">
                     Raccontaci cosa vi fa perdere tempo o cosa vorreste
                     provare. Da lì partiamo, davanti a un caffè.
                   </p>
 
                   {/* Mode switch */}
-                  <div className="mt-5 grid grid-cols-2 gap-2 rounded-full bg-ink/5 p-1">
+                  <div className="mt-5 grid grid-cols-2 gap-2 rounded-full bg-cw-black/5 p-1">
                     <button
                       type="button"
                       onClick={() => onModeChange('call')}
                       className={`inline-flex items-center justify-center gap-2 rounded-full py-2.5 text-sm font-semibold transition-colors ${
                         mode === 'call'
-                          ? 'bg-cream text-ink shadow-sm'
-                          : 'text-ink/60 hover:text-ink'
+                          ? 'bg-cw-white text-cw-black shadow-sm'
+                          : 'text-cw-black/60 hover:text-cw-black'
                       }`}
                     >
                       <CalendarDays size={16} /> Prenota una call
@@ -166,8 +166,8 @@ export default function ContactModal({
                       onClick={() => onModeChange('info')}
                       className={`inline-flex items-center justify-center gap-2 rounded-full py-2.5 text-sm font-semibold transition-colors ${
                         mode === 'info'
-                          ? 'bg-cream text-ink shadow-sm'
-                          : 'text-ink/60 hover:text-ink'
+                          ? 'bg-cw-white text-cw-black shadow-sm'
+                          : 'text-cw-black/60 hover:text-cw-black'
                       }`}
                     >
                       <MessageSquare size={16} /> Richiedi info
@@ -177,23 +177,23 @@ export default function ContactModal({
                   {mode === 'call' ? (
                     <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-5">
                       {/* Calendar */}
-                      <div className="rounded-2xl border border-ink/10 bg-white/60 p-4">
+                      <div className="rounded-2xl border border-cw-black/10 bg-white/60 p-4">
                         <div className="flex items-center justify-between">
                           <button
                             type="button"
                             onClick={() => changeMonth(-1)}
-                            className="inline-flex h-8 w-8 items-center justify-center rounded-full text-ink/60 transition-colors hover:bg-ink/5"
+                            className="inline-flex h-8 w-8 items-center justify-center rounded-full text-cw-black/60 transition-colors hover:bg-cw-black/5"
                             aria-label="Mese precedente"
                           >
                             <ChevronLeft size={18} />
                           </button>
-                          <span className="text-sm font-semibold text-ink">
+                          <span className="text-sm font-semibold text-cw-black">
                             {MONTHS[viewMonth]} {viewYear}
                           </span>
                           <button
                             type="button"
                             onClick={() => changeMonth(1)}
-                            className="inline-flex h-8 w-8 items-center justify-center rounded-full text-ink/60 transition-colors hover:bg-ink/5"
+                            className="inline-flex h-8 w-8 items-center justify-center rounded-full text-cw-black/60 transition-colors hover:bg-cw-black/5"
                             aria-label="Mese successivo"
                           >
                             <ChevronRight size={18} />
@@ -202,7 +202,7 @@ export default function ContactModal({
 
                         <div className="mt-3 grid grid-cols-7 gap-1 text-center">
                           {WEEKDAYS.map((w) => (
-                            <span key={w} className="py-1 text-xs font-medium text-muted">
+                            <span key={w} className="py-1 text-xs font-medium text-cw-gray">
                               {w}
                             </span>
                           ))}
@@ -221,10 +221,10 @@ export default function ContactModal({
                                 onClick={() => setSelectedDay(day)}
                                 className={`mx-auto flex h-9 w-9 items-center justify-center rounded-full text-sm transition-colors ${
                                   active
-                                    ? 'bg-orange font-semibold text-white'
+                                    ? 'bg-cw-secondary font-semibold text-white'
                                     : disabled
-                                      ? 'cursor-not-allowed text-ink/25'
-                                      : 'text-ink/80 hover:bg-ink/5'
+                                      ? 'cursor-not-allowed text-cw-black/25'
+                                      : 'text-cw-black/80 hover:bg-cw-black/5'
                                 }`}
                               >
                                 {day}
@@ -242,7 +242,7 @@ export default function ContactModal({
 
                       <button
                         type="submit"
-                        className="mt-1 inline-flex items-center justify-center rounded-full bg-orange px-6 py-3.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                        className="mt-1 inline-flex items-center justify-center rounded-full bg-cw-secondary px-6 py-3.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
                       >
                         {selectedDay
                           ? `Conferma per il ${selectedDay} ${MONTHS[viewMonth]}`
@@ -262,7 +262,7 @@ export default function ContactModal({
                       <div className="flex flex-col gap-1.5">
                         <label
                           htmlFor="messaggio"
-                          className="text-sm font-medium text-ink/80"
+                          className="text-sm font-medium text-cw-black/80"
                         >
                           Messaggio
                         </label>
@@ -270,13 +270,13 @@ export default function ContactModal({
                           id="messaggio"
                           name="messaggio"
                           rows={3}
-                          className="rounded-xl border border-ink/15 bg-white/60 px-4 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-petrol"
+                          className="rounded-xl border border-cw-black/15 bg-white/60 px-4 py-2.5 text-sm text-cw-black outline-none transition-colors placeholder:text-cw-black/35 focus:border-cw-primary"
                           placeholder="Cosa vorreste risolvere o provare?"
                         />
                       </div>
 
                       <fieldset className="flex flex-col gap-2">
-                        <legend className="text-sm font-medium text-ink/80">
+                        <legend className="text-sm font-medium text-cw-black/80">
                           Come preferisci essere contattato
                         </legend>
                         <div className="mt-1 flex flex-wrap gap-2">
@@ -287,8 +287,8 @@ export default function ContactModal({
                               onClick={() => setPref(p)}
                               className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                                 pref === p
-                                  ? 'border-petrol bg-petrol text-cream'
-                                  : 'border-ink/15 text-ink/70 hover:border-ink/30'
+                                  ? 'border-cw-primary bg-cw-primary text-cw-white'
+                                  : 'border-cw-black/15 text-cw-black/70 hover:border-cw-black/30'
                               }`}
                             >
                               {p}
@@ -299,7 +299,7 @@ export default function ContactModal({
 
                       <button
                         type="submit"
-                        className="mt-1 inline-flex items-center justify-center rounded-full bg-orange px-6 py-3.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                        className="mt-1 inline-flex items-center justify-center rounded-full bg-cw-secondary px-6 py-3.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
                       >
                         Invia richiesta
                       </button>
@@ -326,14 +326,14 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={name} className="text-sm font-medium text-ink/80">
+      <label htmlFor={name} className="text-sm font-medium text-cw-black/80">
         {label}
       </label>
       <input
         id={name}
         name={name}
         type={type}
-        className="rounded-xl border border-ink/15 bg-white/60 px-4 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-petrol"
+        className="rounded-xl border border-cw-black/15 bg-white/60 px-4 py-2.5 text-sm text-cw-black outline-none transition-colors placeholder:text-cw-black/35 focus:border-cw-primary"
       />
     </div>
   )

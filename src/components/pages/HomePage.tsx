@@ -25,7 +25,7 @@ export default function HomePage() {
   }, [hash])
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cw-white">
       <SiteHeader overHero />
       <main>
         <Hero />

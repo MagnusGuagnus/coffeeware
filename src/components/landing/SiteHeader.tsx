@@ -45,7 +45,7 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         solid
-          ? 'border-b border-ink/10 bg-cream/85 backdrop-blur-md'
+          ? 'border-b border-cw-black/10 bg-cw-white/85 backdrop-blur-md'
           : 'border-b border-transparent'
       }`}
     >
@@ -80,7 +80,7 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
           <Link
             to="/prenota"
             onClick={goTop('/prenota')}
-            className="hidden rounded-full bg-orange px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform hover:-translate-y-0.5 md:inline-flex"
+            className="hidden rounded-full bg-cw-secondary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform hover:-translate-y-0.5 md:inline-flex"
           >
             Prenota una call
           </Link>
@@ -89,8 +89,8 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
             onClick={() => setOpen((v) => !v)}
             className={`inline-flex h-10 w-10 items-center justify-center rounded-full border md:hidden ${
               solid || open
-                ? 'border-ink/15 text-ink'
-                : 'border-cream/25 text-cream'
+                ? 'border-cw-black/15 text-cw-black'
+                : 'border-cw-white/25 text-cw-white'
             }`}
             aria-label={open ? 'Chiudi menu' : 'Apri menu'}
             aria-expanded={open}
@@ -107,7 +107,7 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-hidden border-t border-ink/10 bg-cream md:hidden"
+            className="overflow-hidden border-t border-cw-black/10 bg-cw-white md:hidden"
           >
             <nav className="flex flex-col px-5 py-4" aria-label="Mobile">
               {NAV.map((item) => (
@@ -115,7 +115,7 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
                   key={item.to}
                   to={item.to}
                   onClick={goTop(item.to)}
-                  className="border-b border-ink/5 py-3 text-base font-medium text-ink/80"
+                  className="border-b border-cw-black/5 py-3 text-base font-medium text-cw-black/80"
                 >
                   {item.label}
                 </Link>
@@ -123,7 +123,7 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
               <Link
                 to="/prenota"
                 onClick={goTop('/prenota')}
-                className="mt-4 rounded-full bg-orange px-5 py-3 text-center text-base font-semibold text-white"
+                className="mt-4 rounded-full bg-cw-secondary px-5 py-3 text-center text-base font-semibold text-white"
               >
                 Prenota una call
               </Link>
@@ -137,6 +137,6 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
 
 function linkClass(solid: boolean) {
   return `text-sm font-medium transition-colors ${
-    solid ? 'text-ink/70 hover:text-ink' : 'text-cream/75 hover:text-cream'
+    solid ? 'text-cw-black/70 hover:text-cw-black' : 'text-cw-white/75 hover:text-cw-white'
   }`
 }

@@ -140,29 +140,29 @@ function TopicBlock({ topic, index }: { topic: Topic; index: number }) {
   return (
     <div
       ref={ref}
-      className="grid grid-cols-1 gap-8 border-t border-ink/10 py-14 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-16 md:py-20"
+      className="grid grid-cols-1 gap-8 border-t border-cw-black/10 py-14 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-16 md:py-20"
     >
       {/* Left: sticky title column */}
       <motion.div
         style={{ opacity: titleOpacity, y: titleY }}
         className="md:sticky md:top-28 md:h-fit md:self-start"
       >
-        <h3 className="text-balance font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
+        <h3 className="text-balance font-display text-4xl font-bold leading-[1.05] text-cw-black md:text-5xl">
           {topic.title}
-          <span className="text-orange">;</span>
+          <span className="text-cw-secondary">;</span>
         </h3>
-        <p className="mt-5 max-w-md text-pretty text-lg leading-relaxed text-muted">
+        <p className="mt-5 max-w-md text-pretty text-lg leading-relaxed text-cw-gray">
           {topic.description}
         </p>
 
         <div className="mt-8 flex items-center gap-4">
-          <span className="font-display text-6xl font-extrabold leading-none text-orange/20">
+          <span className="font-display text-6xl font-extrabold leading-none text-cw-secondary/20">
             {String(index + 1).padStart(2, '0')}
           </span>
-          <div className="h-1.5 w-full max-w-[180px] overflow-hidden rounded-full bg-ink/10">
+          <div className="h-1.5 w-full max-w-[180px] overflow-hidden rounded-full bg-cw-black/10">
             <motion.span
               style={{ width: fill }}
-              className="block h-full rounded-full bg-orange"
+              className="block h-full rounded-full bg-cw-secondary"
             />
           </div>
         </div>
@@ -197,17 +197,17 @@ function FadeCard({ item }: { item: SubService }) {
     <motion.article
       ref={ref}
       style={{ opacity, y }}
-      className="group rounded-3xl border border-ink/10 bg-white/70 p-7 shadow-sm transition-colors hover:border-orange/40 md:p-8"
+      className="group rounded-3xl border border-cw-black/10 bg-white/70 p-7 shadow-sm transition-colors hover:border-cw-secondary/40 md:p-8"
     >
       <div className="flex items-start gap-5">
-        <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-orange/15 text-orange">
+        <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-cw-secondary/15 text-cw-secondary">
           <Icon size={26} />
         </span>
         <div>
-          <h4 className="font-display text-xl font-semibold text-ink md:text-2xl">
+          <h4 className="font-display text-xl font-semibold text-cw-black md:text-2xl">
             {item.title}
           </h4>
-          <p className="mt-3 text-pretty text-base leading-relaxed text-muted">
+          <p className="mt-3 text-pretty text-base leading-relaxed text-cw-gray">
             {item.description}
           </p>
         </div>
@@ -218,7 +218,7 @@ function FadeCard({ item }: { item: SubService }) {
 
 export default function ServicesShowcase() {
   return (
-    <section aria-label="I nostri servizi" className="bg-cream py-8 md:py-12">
+    <section aria-label="I nostri servizi" className="bg-cw-white py-8 md:py-12">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         {TOPICS.map((topic, i) => (
           <TopicBlock key={topic.title} topic={topic} index={i} />

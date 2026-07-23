@@ -6,14 +6,14 @@ import { SERVICES } from '../data/services'
 
 export default function Servizi() {
   return (
-    <section id="servizi" className="scroll-mt-24 bg-cream py-20 md:py-28">
+    <section id="servizi" className="scroll-mt-24 bg-cw-white py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="max-w-2xl">
-          <h2 className="text-balance font-display text-3xl font-bold text-ink md:text-4xl">
+          <h2 className="text-balance font-display text-3xl font-bold text-cw-black md:text-4xl">
             Cosa possiamo costruire per voi
-            <span className="text-orange">;</span>
+            <span className="text-cw-secondary">;</span>
           </h2>
-          <p className="mt-4 text-pretty text-lg leading-relaxed text-muted">
+          <p className="mt-4 text-pretty text-lg leading-relaxed text-cw-gray">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
@@ -30,7 +30,7 @@ export default function Servizi() {
         <Reveal delay={0.1} className="mt-12 flex justify-center">
           <Link
             to="/servizi"
-            className="group inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/60 px-7 py-3.5 text-base font-semibold text-ink transition-colors hover:border-ink/30"
+            className="group inline-flex items-center gap-2 rounded-full border border-cw-black/15 bg-white/60 px-7 py-3.5 text-base font-semibold text-cw-black transition-colors hover:border-cw-black/30"
           >
             Vedi tutti i servizi
             <ArrowRight

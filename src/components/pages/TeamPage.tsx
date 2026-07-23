@@ -38,23 +38,23 @@ export default function TeamPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cw-white">
       <SiteHeader />
       <main>
         {/* Page hero */}
-        <section className="relative overflow-hidden bg-petrol-deep pt-32 pb-16 text-cream md:pt-40 md:pb-24">
+        <section className="relative overflow-hidden bg-cw-primary pt-32 pb-16 text-cw-white md:pt-40 md:pb-24">
           <div
             aria-hidden
-            className="pointer-events-none absolute -right-10 top-1/2 hidden -translate-y-1/2 select-none font-display text-[26rem] font-extrabold leading-none text-orange/10 md:block"
+            className="pointer-events-none absolute -right-10 top-1/2 hidden -translate-y-1/2 select-none font-display text-[26rem] font-extrabold leading-none text-cw-secondary/10 md:block"
           >
             ;
           </div>
           <div className="relative mx-auto max-w-6xl px-5 md:px-8">
             <h1 className="max-w-3xl text-balance font-display text-4xl font-bold leading-[1.05] md:text-6xl">
               Chi sono i Coffee Breakers
-              <span className="text-orange">;</span>
+              <span className="text-cw-secondary">;</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-cream/75">
+            <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-cw-white/75">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
@@ -68,29 +68,29 @@ export default function TeamPage() {
         <TeamSteps />
 
         {/* Members */}
-        <section className="bg-cream py-20 md:py-28">
+        <section className="bg-cw-white py-20 md:py-28">
           <div className="mx-auto max-w-4xl px-5 md:px-8">
             <div className="grid gap-8 sm:grid-cols-2">
               {MEMBERS.map((m, i) => (
                 <Reveal key={m.name} delay={i * 0.08}>
-                  <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-ink/10 bg-white/60 transition-all duration-300 hover:-translate-y-1 hover:border-orange/40 hover:shadow-lg">
+                  <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-cw-black/10 bg-white/60 transition-all duration-300 hover:-translate-y-1 hover:border-cw-secondary/40 hover:shadow-lg">
                     {/* Branded image placeholder */}
-                    <div className="relative flex aspect-[4/3] items-center justify-center bg-petrol/10">
-                      <span className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-petrol/15 text-petrol">
+                    <div className="relative flex aspect-[4/3] items-center justify-center bg-cw-primary/10">
+                      <span className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-cw-primary/15 text-cw-primary">
                         <User size={30} />
                       </span>
-                      <span className="absolute bottom-3 left-3 rounded-full bg-cream/80 px-3 py-1 text-xs font-medium text-muted">
+                      <span className="absolute bottom-3 left-3 rounded-full bg-cw-white/80 px-3 py-1 text-xs font-medium text-cw-gray">
                         immagine
                       </span>
                     </div>
                     <div className="flex flex-1 flex-col p-6 md:p-7">
-                      <h2 className="font-display text-xl font-semibold text-ink">
+                      <h2 className="font-display text-xl font-semibold text-cw-black">
                         {m.name}
                       </h2>
-                      <p className="mt-1 text-sm font-semibold text-orange">
+                      <p className="mt-1 text-sm font-semibold text-cw-secondary">
                         {m.role}
                       </p>
-                      <p className="mt-3 flex-1 text-pretty text-sm leading-relaxed text-muted">
+                      <p className="mt-3 flex-1 text-pretty text-sm leading-relaxed text-cw-gray">
                         {m.bio}
                       </p>
                       <div className="mt-5 flex items-center gap-3">
@@ -100,7 +100,7 @@ export default function TeamPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`GitHub di ${m.name}`}
-                            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-ink/5 text-ink/70 transition-colors hover:bg-orange/15 hover:text-orange"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-cw-black/5 text-cw-black/70 transition-colors hover:bg-cw-secondary/15 hover:text-cw-secondary"
                           >
                             <Github size={18} />
                           </a>
@@ -111,7 +111,7 @@ export default function TeamPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`LinkedIn di ${m.name}`}
-                            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-ink/5 text-ink/70 transition-colors hover:bg-orange/15 hover:text-orange"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-cw-black/5 text-cw-black/70 transition-colors hover:bg-cw-secondary/15 hover:text-cw-secondary"
                           >
                             <Linkedin size={18} />
                           </a>

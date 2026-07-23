@@ -24,16 +24,16 @@ const STEPS = [
 
 export default function ComeLavoriamo() {
   return (
-    <section id="come-lavoriamo" className="bg-cream py-20 md:py-28">
+    <section id="come-lavoriamo" className="bg-cw-white py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-2xl">
           <Reveal delay={0.05}>
-            <h2 className="text-balance text-3xl font-bold leading-tight text-ink md:text-4xl">
+            <h2 className="text-balance text-3xl font-bold leading-tight text-cw-black md:text-4xl">
               {'Uno studio di due persone, non un\u2019agenzia'}
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted">
+            <p className="mt-4 text-pretty text-lg leading-relaxed text-cw-gray">
               Meno intermediari, più risultato. Chi disegna la soluzione è la
               stessa persona che la costruisce e che risponde al telefono.
             </p>
@@ -46,14 +46,14 @@ export default function ComeLavoriamo() {
             return (
               <Reveal key={s.step} delay={i * 0.1}>
                 <div className="relative">
-                  <span className="font-display text-5xl font-extrabold text-ink/10">
+                  <span className="font-display text-5xl font-extrabold text-cw-black/10">
                     {s.step}
                   </span>
-                  <div className="mt-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-petrol text-cream">
+                  <div className="mt-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cw-primary text-cw-white">
                     <Icon size={22} />
                   </div>
-                  <h3 className="mt-5 text-xl font-bold text-ink">{s.title}</h3>
-                  <p className="mt-3 text-pretty leading-relaxed text-muted">
+                  <h3 className="mt-5 text-xl font-bold text-cw-black">{s.title}</h3>
+                  <p className="mt-3 text-pretty leading-relaxed text-cw-gray">
                     {s.body}
                   </p>
                 </div>

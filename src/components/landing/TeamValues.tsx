@@ -73,7 +73,7 @@ export default function TeamValues() {
     <section
       ref={sectionRef}
       aria-label="Valori e punti di forza"
-      className="relative bg-cream"
+      className="relative bg-cw-white"
       style={{ height: `calc(100vh + ${lastIndex * 60}vh)` }}
     >
       {/* Pinned viewport */}
@@ -81,11 +81,11 @@ export default function TeamValues() {
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 px-5 md:grid-cols-2 md:gap-16 md:px-8">
           {/* Left: title column */}
           <div className="flex flex-col justify-center">
-            <h2 className="text-balance font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
+            <h2 className="text-balance font-display text-4xl font-bold leading-[1.05] text-cw-black md:text-5xl">
               Valori e punti di forza
-              <span className="text-orange">;</span>
+              <span className="text-cw-secondary">;</span>
             </h2>
-            <p className="mt-5 max-w-md text-pretty text-lg leading-relaxed text-muted">
+            <p className="mt-5 max-w-md text-pretty text-lg leading-relaxed text-cw-gray">
               I principi che guidano ogni progetto che facciamo. Scorri per
               scoprirli uno alla volta.
             </p>
@@ -98,14 +98,14 @@ export default function TeamValues() {
                   aria-hidden
                   className={`h-1.5 rounded-full transition-all duration-300 ${
                     i === active
-                      ? 'w-8 bg-orange'
-                      : 'w-3 bg-ink/15'
+                      ? 'w-8 bg-cw-secondary'
+                      : 'w-3 bg-cw-black/15'
                   }`}
                 />
               ))}
             </div>
-            <p className="mt-3 text-sm font-medium text-muted">
-              <span className="text-ink">{String(active + 1).padStart(2, '0')}</span>
+            <p className="mt-3 text-sm font-medium text-cw-gray">
+              <span className="text-cw-black">{String(active + 1).padStart(2, '0')}</span>
               {' / '}
               {String(VALUES.length).padStart(2, '0')}
             </p>
@@ -127,18 +127,18 @@ export default function TeamValues() {
                         scale: i === active ? 1 : 0.96,
                       }}
                       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                      className="rounded-3xl border border-ink/10 bg-white/70 p-8 shadow-sm md:p-10"
+                      className="rounded-3xl border border-cw-black/10 bg-white/70 p-8 shadow-sm md:p-10"
                     >
-                      <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-orange/15 text-orange">
+                      <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-cw-secondary/15 text-cw-secondary">
                         <Icon size={26} />
                       </span>
-                      <h3 className="mt-6 font-display text-2xl font-semibold text-ink md:text-3xl">
+                      <h3 className="mt-6 font-display text-2xl font-semibold text-cw-black md:text-3xl">
                         {v.title}
                       </h3>
-                      <p className="mt-4 text-pretty text-base leading-relaxed text-muted md:text-lg">
+                      <p className="mt-4 text-pretty text-base leading-relaxed text-cw-gray md:text-lg">
                         {v.description}
                       </p>
-                      <span className="mt-8 block font-display text-6xl font-extrabold leading-none text-orange/15">
+                      <span className="mt-8 block font-display text-6xl font-extrabold leading-none text-cw-secondary/15">
                         {String(i + 1).padStart(2, '0')}
                       </span>
                     </motion.article>
