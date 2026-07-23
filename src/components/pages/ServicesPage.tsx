@@ -3,9 +3,8 @@ import { ArrowRight } from 'lucide-react'
 import SiteHeader from '../landing/SiteHeader'
 import SiteFooter from '../landing/SiteFooter'
 import Reveal from '../landing/Reveal'
-import ServiceCard from '../landing/ServiceCard'
+import ServicesShowcase from '../landing/ServicesShowcase'
 import CtaStrip from '../landing/CtaStrip'
-import { SERVICES } from '../data/services'
 import { useContact } from '../contact/ContactContext'
 
 export default function ServicesPage() {
@@ -28,11 +27,7 @@ export default function ServicesPage() {
             ;
           </div>
           <div className="relative mx-auto max-w-6xl px-5 md:px-8">
-            <span className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 px-4 py-1.5 text-sm text-cream/80">
-              <span className="text-orange">;</span>
-              Servizi · Food &amp; Beverage
-            </span>
-            <h1 className="mt-6 max-w-3xl text-balance font-display text-4xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="max-w-3xl text-balance font-display text-4xl font-bold leading-[1.05] md:text-6xl">
               Cosa possiamo costruire per voi
             </h1>
             <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-cream/75">
@@ -43,18 +38,12 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Services grid (detailed) */}
-        <section className="bg-cream py-20 md:py-28">
-          <div className="mx-auto max-w-6xl px-5 md:px-8">
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {SERVICES.map((service, i) => (
-                <Reveal key={service.title} delay={i * 0.06}>
-                  <ServiceCard service={service} detailed />
-                </Reveal>
-              ))}
-            </div>
+        {/* Services: sticky macro topics + vertical scroll of specifics */}
+        <ServicesShowcase />
 
-            <Reveal delay={0.1} className="mt-14 flex justify-center">
+        <section className="bg-cream pb-20 md:pb-28">
+          <div className="mx-auto max-w-6xl px-5 md:px-8">
+            <Reveal className="flex justify-center">
               <button
                 type="button"
                 onClick={() => openContact('info')}
