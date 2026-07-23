@@ -50,12 +50,9 @@ export default function TeamPage() {
             ;
           </div>
           <div className="relative mx-auto max-w-6xl px-5 md:px-8">
-            <span className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 px-4 py-1.5 text-sm text-cream/80">
-              <span className="text-orange">;</span>
-              Il team
-            </span>
-            <h1 className="mt-6 max-w-3xl text-balance font-display text-4xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="max-w-3xl text-balance font-display text-4xl font-bold leading-[1.05] md:text-6xl">
               Chi sono i Coffee Breakers
+              <span className="text-orange">;</span>
             </h1>
             <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-cream/75">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

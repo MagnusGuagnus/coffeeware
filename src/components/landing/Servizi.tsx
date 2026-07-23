@@ -9,9 +9,9 @@ export default function Servizi() {
     <section id="servizi" className="scroll-mt-24 bg-cream py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="max-w-2xl">
-          <span className="text-sm font-semibold text-orange">;</span>
-          <h2 className="mt-2 text-balance font-display text-3xl font-bold text-ink md:text-4xl">
+          <h2 className="text-balance font-display text-3xl font-bold text-ink md:text-4xl">
             Cosa possiamo costruire per voi
+            <span className="text-orange">;</span>
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

@@ -26,16 +26,6 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 px-4 py-1.5 text-sm text-cream/80"
-        >
-          <span className="text-orange">;</span>
-          Studio di sviluppo software · Nord-Est Italia
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -44,6 +34,7 @@ export default function Hero() {
         >
           Software su misura per chi produce food{' '}
           <span className="text-orange">&amp;</span> beverage
+          <span className="text-orange">;</span>
         </motion.h1>
 
         <motion.p

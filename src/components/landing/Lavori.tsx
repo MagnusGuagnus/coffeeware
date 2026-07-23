@@ -22,13 +22,8 @@ export default function Lavori() {
     <section id="lavori" className="bg-cream-dim py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-2xl">
-          <Reveal>
-            <span className="text-sm font-semibold uppercase tracking-wider text-orange">
-              Lavori
-            </span>
-          </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="mt-3 text-balance text-3xl font-bold leading-tight text-ink md:text-4xl">
+            <h2 className="text-balance text-3xl font-bold leading-tight text-ink md:text-4xl">
               Software che i clienti usano davvero
             </h2>
           </Reveal>

@@ -46,12 +46,9 @@ export default function TeamSteps() {
     <section aria-label="Come lavoriamo" className="bg-cream pb-20 md:pb-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-ink/10 bg-white/60 px-4 py-1.5 text-sm text-muted">
-            <span className="text-orange">;</span>
-            Come lavoriamo
-          </span>
-          <h2 className="mt-6 text-balance font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
+          <h2 className="text-balance font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
             Il percorso in cinque step
+            <span className="text-orange">;</span>
           </h2>
           <p className="mt-5 text-pretty text-lg leading-relaxed text-muted">
             Dal primo confronto al supporto post-rilascio, seguiamo un processo

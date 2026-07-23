@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
 import {
-  Code2,
   ShoppingCart,
   LayoutTemplate,
   AppWindow,
@@ -148,12 +147,9 @@ function TopicBlock({ topic, index }: { topic: Topic; index: number }) {
         style={{ opacity: titleOpacity, y: titleY }}
         className="md:sticky md:top-28 md:h-fit md:self-start"
       >
-        <span className="inline-flex w-fit items-center gap-2 rounded-full border border-ink/10 bg-white/60 px-4 py-1.5 text-sm text-muted">
-          <span className="text-orange">;</span>
-          {topic.kicker}
-        </span>
-        <h3 className="mt-5 text-balance font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
+        <h3 className="text-balance font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
           {topic.title}
+          <span className="text-orange">;</span>
         </h3>
         <p className="mt-5 max-w-md text-pretty text-lg leading-relaxed text-muted">
           {topic.description}

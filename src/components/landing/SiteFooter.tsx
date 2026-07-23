@@ -6,7 +6,7 @@ const NAV = [
   { label: 'Servizi', to: '/servizi' },
   { label: 'Team', to: '/team' },
   { label: 'Coffee Breakers', to: '/#coffee-breakers', hash: true },
-  { label: 'Contatti', to: '/#contatti', hash: true },
+  { label: 'Contatti', to: '/contatti' },
 ]
 
 const CONTACTS = [

@@ -1,314 +1,144 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'motion/react'
+import { Link } from 'react-router-dom'
 import {
   CalendarDays,
-  MessageSquare,
-  ChevronLeft,
-  ChevronRight,
   ChevronRight as ArrowRight,
-  Check,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Clock,
+  Linkedin,
 } from 'lucide-react'
 import SiteHeader from '../landing/SiteHeader'
 import SiteFooter from '../landing/SiteFooter'
 import Reveal from '../landing/Reveal'
 
-type RequestType = 'call' | 'email' | null
+const CONTACTS = [
+  {
+    icon: Mail,
+    label: 'E-mail',
+    value: 'ciao@coffeeware.it',
+    href: 'mailto:ciao@coffeeware.it',
+    hint: 'Rispondiamo entro un giorno lavorativo.',
+  },
+  {
+    icon: Phone,
+    label: 'Telefono',
+    value: '+39 000 000 0000',
+    href: 'tel:+390000000000',
+    hint: 'Lun–Ven, negli orari di ufficio.',
+  },
+  {
+    icon: MessageCircle,
+    label: 'WhatsApp',
+    value: 'Scrivici su WhatsApp',
+    href: 'https://wa.me/390000000000',
+    hint: 'Per le domande veloci.',
+  },
+  {
+    icon: Linkedin,
+    label: 'LinkedIn',
+    value: '/company/coffeeware',
+    href: 'https://www.linkedin.com/company/coffeeware',
+    hint: 'Qui raccontiamo cosa stiamo costruendo.',
+  },
+]
 
-const WEEKDAYS = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom']
-const MONTHS = [
-  'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
-  'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre',
+const DETAILS = [
+  { icon: MapPin, label: 'Dove siamo', lines: ['Via Esempio 1', '00000 Città (XX), Italia'] },
+  { icon: Clock, label: 'Quando ci trovi', lines: ['Lunedì – Venerdì', '9:00 – 18:00'] },
 ]
 
 export default function ContactPage() {
-  const [type, setType] = useState<RequestType>(null)
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSubmitted(true)
-  }
-
   return (
     <div className="min-h-screen bg-cream">
       <SiteHeader />
-      <main className="mx-auto max-w-3xl px-5 pb-24 pt-28 md:px-8 md:pb-32 md:pt-36">
-        {submitted ? (
-          <SuccessState onReset={() => { setSubmitted(false); setType(null) }} />
-        ) : (
-          <>
-            <Reveal>
-              <span className="text-sm font-semibold text-orange">;</span>
-              <h1 className="mt-1 text-balance font-display text-4xl font-bold leading-tight text-ink md:text-5xl">
-                Parliamone davanti a un caffè
-              </h1>
-              <p className="mt-4 max-w-xl text-pretty text-lg leading-relaxed text-muted">
-                Scegli come preferisci iniziare: prenota una call e trova
-                subito uno slot, oppure scrivici in due righe cosa vi serve.
-              </p>
-            </Reveal>
 
-            {/* Step 1 — request type (mutually exclusive) */}
-            <Reveal delay={0.05}>
-              <div className="mt-10 grid gap-4 sm:grid-cols-2">
-                <TypeCard
-                  active={type === 'call'}
-                  onClick={() => setType('call')}
-                  icon={<CalendarDays size={22} />}
-                  title="Prenota una call"
-                  desc="Scegli un giorno e ti richiamiamo noi."
-                />
-                <TypeCard
-                  active={type === 'email'}
-                  onClick={() => setType('email')}
-                  icon={<MessageSquare size={22} />}
-                  title="Scrivici via e-mail"
-                  desc="Raccontaci il progetto, ti rispondiamo."
-                />
-              </div>
-            </Reveal>
+      <main className="mx-auto max-w-6xl px-5 pb-24 pt-28 md:px-8 md:pb-32 md:pt-36">
+        <div className="grid gap-12 md:grid-cols-[1.1fr_1fr] md:gap-16">
+          {/* Intro + CTA */}
+          <Reveal>
+            <h1 className="text-balance font-display text-4xl font-bold leading-tight text-ink md:text-5xl">
+              Parliamone davanti a un caffè
+              <span className="text-orange">;</span>
+            </h1>
+            <p className="mt-4 max-w-xl text-pretty text-lg leading-relaxed text-muted">
+              Raccontaci cosa vi serve: una call di trenta minuti basta per
+              capire se possiamo darvi una mano e come. Nessun impegno, solo una
+              chiacchierata concreta.
+            </p>
+            <Link
+              to="/prenota"
+              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+            >
+              <CalendarDays size={18} />
+              Prenota una call
+              <ArrowRight
+                size={18}
+                className="transition-transform group-hover:translate-x-0.5"
+              />
+            </Link>
+          </Reveal>
 
-            {/* Step 2 — exclusive form based on the first choice */}
-            <AnimatePresence mode="wait">
-              {type && (
-                <motion.div
-                  key={type}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="mt-8"
+          {/* Contact info */}
+          <Reveal delay={0.05}>
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-semibold uppercase tracking-wider text-muted">
+                Oppure scrivici direttamente
+              </span>
+              {CONTACTS.map(({ icon: Icon, label, value, href, hint }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noreferrer' : undefined}
+                  className="group flex items-start gap-4 rounded-2xl border border-ink/10 bg-white/60 p-4 transition-colors hover:border-ink/25"
                 >
-                  {type === 'call' ? (
-                    <CallForm onSubmit={handleSubmit} />
-                  ) : (
-                    <EmailForm onSubmit={handleSubmit} />
-                  )}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </>
-        )}
+                  <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink/5 text-ink/70 transition-colors group-hover:bg-orange group-hover:text-white">
+                    <Icon size={18} />
+                  </span>
+                  <span className="flex flex-col">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-muted">
+                      {label}
+                    </span>
+                    <span className="font-display text-base font-semibold text-ink">
+                      {value}
+                    </span>
+                    <span className="mt-0.5 text-sm leading-relaxed text-muted">
+                      {hint}
+                    </span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Sede e orari */}
+        <Reveal delay={0.1}>
+          <div className="mt-16 grid gap-4 border-t border-ink/10 pt-10 sm:grid-cols-2">
+            {DETAILS.map(({ icon: Icon, label, lines }) => (
+              <div key={label} className="flex items-start gap-4">
+                <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange/10 text-orange">
+                  <Icon size={18} />
+                </span>
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-muted">
+                    {label}
+                  </span>
+                  {lines.map((line) => (
+                    <p key={line} className="text-sm leading-relaxed text-ink/80">
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </main>
+
       <SiteFooter />
-    </div>
-  )
-}
-
-function TypeCard({
-  active,
-  onClick,
-  icon,
-  title,
-  desc,
-}: {
-  active: boolean
-  onClick: () => void
-  icon: React.ReactNode
-  title: string
-  desc: string
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className={`flex flex-col items-start gap-3 rounded-2xl border p-5 text-left transition-all ${
-        active
-          ? 'border-orange bg-orange/5 shadow-sm'
-          : 'border-ink/10 bg-white/60 hover:border-ink/25'
-      }`}
-    >
-      <span
-        className={`inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors ${
-          active ? 'bg-orange text-white' : 'bg-ink/5 text-ink/70'
-        }`}
-      >
-        {icon}
-      </span>
-      <span className="font-display text-lg font-semibold text-ink">{title}</span>
-      <span className="text-sm leading-relaxed text-muted">{desc}</span>
-    </button>
-  )
-}
-
-function CallForm({ onSubmit }: { onSubmit: (e: React.FormEvent) => void }) {
-  const today = new Date()
-  const [viewYear, setViewYear] = useState(today.getFullYear())
-  const [viewMonth, setViewMonth] = useState(today.getMonth())
-  const [selectedDay, setSelectedDay] = useState<number | null>(null)
-
-  const firstWeekday = (new Date(viewYear, viewMonth, 1).getDay() + 6) % 7
-  const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate()
-  const isPast = (day: number) => {
-    const d = new Date(viewYear, viewMonth, day)
-    const start = new Date(today.getFullYear(), today.getMonth(), today.getDate())
-    return d < start
-  }
-  const changeMonth = (delta: number) => {
-    setSelectedDay(null)
-    const next = new Date(viewYear, viewMonth + delta, 1)
-    setViewYear(next.getFullYear())
-    setViewMonth(next.getMonth())
-  }
-
-  return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-5">
-      <div className="rounded-2xl border border-ink/10 bg-white/60 p-4 md:p-5">
-        <p className="mb-3 text-sm font-medium text-ink/80">Scegli un giorno</p>
-        <div className="flex items-center justify-between">
-          <button
-            type="button"
-            onClick={() => changeMonth(-1)}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full text-ink/60 transition-colors hover:bg-ink/5"
-            aria-label="Mese precedente"
-          >
-            <ChevronLeft size={18} />
-          </button>
-          <span className="text-sm font-semibold text-ink">
-            {MONTHS[viewMonth]} {viewYear}
-          </span>
-          <button
-            type="button"
-            onClick={() => changeMonth(1)}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full text-ink/60 transition-colors hover:bg-ink/5"
-            aria-label="Mese successivo"
-          >
-            <ChevronRight size={18} />
-          </button>
-        </div>
-        <div className="mt-3 grid grid-cols-7 gap-1 text-center">
-          {WEEKDAYS.map((w) => (
-            <span key={w} className="py-1 text-xs font-medium text-muted">
-              {w}
-            </span>
-          ))}
-          {Array.from({ length: firstWeekday }).map((_, i) => (
-            <span key={`pad-${i}`} />
-          ))}
-          {Array.from({ length: daysInMonth }).map((_, i) => {
-            const day = i + 1
-            const disabled = isPast(day)
-            const active = selectedDay === day
-            return (
-              <button
-                key={day}
-                type="button"
-                disabled={disabled}
-                onClick={() => setSelectedDay(day)}
-                className={`mx-auto flex h-9 w-9 items-center justify-center rounded-full text-sm transition-colors ${
-                  active
-                    ? 'bg-orange font-semibold text-white'
-                    : disabled
-                      ? 'cursor-not-allowed text-ink/25'
-                      : 'text-ink/80 hover:bg-ink/5'
-                }`}
-              >
-                {day}
-              </button>
-            )
-          })}
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <Field label="Nome" name="nome" />
-        <Field label="Cognome" name="cognome" />
-      </div>
-      <Field label="Telefono" name="telefono" type="tel" />
-
-      <SubmitButton
-        label={
-          selectedDay
-            ? `Conferma per il ${selectedDay} ${MONTHS[viewMonth]}`
-            : 'Prenota la call'
-        }
-      />
-    </form>
-  )
-}
-
-function EmailForm({ onSubmit }: { onSubmit: (e: React.FormEvent) => void }) {
-  return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-4">
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <Field label="Nome" name="nome" />
-        <Field label="Cognome" name="cognome" />
-      </div>
-      <Field label="E-mail" name="email" type="email" />
-      <div className="flex flex-col gap-1.5">
-        <label htmlFor="messaggio" className="text-sm font-medium text-ink/80">
-          Messaggio
-        </label>
-        <textarea
-          id="messaggio"
-          name="messaggio"
-          rows={4}
-          className="rounded-xl border border-ink/15 bg-white/60 px-4 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-petrol"
-          placeholder="Cosa vorreste risolvere o provare?"
-        />
-      </div>
-      <SubmitButton label="Invia richiesta" />
-    </form>
-  )
-}
-
-function SubmitButton({ label }: { label: string }) {
-  return (
-    <button
-      type="submit"
-      className="group mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-orange px-6 py-3.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
-    >
-      {label}
-      <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
-    </button>
-  )
-}
-
-function SuccessState({ onReset }: { onReset: () => void }) {
-  return (
-    <div className="flex flex-col items-center py-16 text-center">
-      <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-orange/15 text-orange">
-        <Check size={30} />
-      </span>
-      <h1 className="mt-6 font-display text-3xl font-bold text-ink">
-        Grazie, ci sentiamo presto
-      </h1>
-      <p className="mt-3 max-w-md text-pretty text-base leading-relaxed text-muted">
-        Questa è un&apos;anteprima front-end, quindi non è stato inviato nulla.
-        L&apos;invio verrà collegato in seguito.
-      </p>
-      <button
-        type="button"
-        onClick={onReset}
-        className="mt-8 rounded-full bg-petrol px-6 py-3 text-sm font-semibold text-cream transition-transform hover:-translate-y-0.5"
-      >
-        Torna ai contatti
-      </button>
-    </div>
-  )
-}
-
-function Field({
-  label,
-  name,
-  type = 'text',
-}: {
-  label: string
-  name: string
-  type?: string
-}) {
-  return (
-    <div className="flex flex-col gap-1.5">
-      <label htmlFor={name} className="text-sm font-medium text-ink/80">
-        {label}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        className="rounded-xl border border-ink/15 bg-white/60 px-4 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-petrol"
-      />
     </div>
   )
 }

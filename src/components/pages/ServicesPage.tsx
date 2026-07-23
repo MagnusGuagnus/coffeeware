@@ -29,6 +29,7 @@ export default function ServicesPage() {
           <div className="relative mx-auto max-w-6xl px-5 md:px-8">
             <h1 className="max-w-3xl text-balance font-display text-4xl font-bold leading-[1.05] md:text-6xl">
               Cosa possiamo costruire per voi
+              <span className="text-orange">;</span>
             </h1>
             <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-cream/75">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

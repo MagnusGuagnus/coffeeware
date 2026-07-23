@@ -7,9 +7,9 @@ export default function CoffeeBreakers() {
     <section id="coffee-breakers" className="scroll-mt-24 bg-cream-dim py-20 md:py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2 md:gap-14 md:px-8">
         <Reveal>
-          <span className="text-sm font-semibold text-orange">;</span>
-          <h2 className="mt-2 text-balance font-display text-3xl font-bold text-ink md:text-4xl">
+          <h2 className="text-balance font-display text-3xl font-bold text-ink md:text-4xl">
             Chi sono i Coffee Breakers
+            <span className="text-orange">;</span>
           </h2>
           <p className="mt-5 text-pretty text-lg leading-relaxed text-muted">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

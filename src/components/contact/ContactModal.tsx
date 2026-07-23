@@ -140,7 +140,6 @@ export default function ContactModal({
                 </div>
               ) : (
                 <>
-                  <span className="text-sm font-semibold text-orange">;</span>
                   <h2 className="mt-1 font-display text-2xl font-bold text-ink">
                     Scambiamo due chiacchiere
                   </h2>

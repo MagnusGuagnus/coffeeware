@@ -30,13 +30,8 @@ export default function CosaFacciamo() {
     <section id="cosa-facciamo" className="bg-cream py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-2xl">
-          <Reveal>
-            <span className="text-sm font-semibold uppercase tracking-wider text-orange">
-              Cosa facciamo
-            </span>
-          </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="mt-3 text-balance text-3xl font-bold leading-tight text-ink md:text-4xl">
+            <h2 className="text-balance text-3xl font-bold leading-tight text-ink md:text-4xl">
               Partiamo dal vostro processo reale, non da un pacchetto
               preconfezionato
             </h2>

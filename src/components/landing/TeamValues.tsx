@@ -81,12 +81,9 @@ export default function TeamValues() {
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 px-5 md:grid-cols-2 md:gap-16 md:px-8">
           {/* Left: title column */}
           <div className="flex flex-col justify-center">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-ink/10 bg-white/60 px-4 py-1.5 text-sm text-muted">
-              <span className="text-orange">;</span>
-              Perché noi
-            </span>
-            <h2 className="mt-6 text-balance font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
+            <h2 className="text-balance font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
               Valori e punti di forza
+              <span className="text-orange">;</span>
             </h2>
             <p className="mt-5 max-w-md text-pretty text-lg leading-relaxed text-muted">
               I principi che guidano ogni progetto che facciamo. Scorri per
