@@ -15,7 +15,6 @@ import {
   ShieldCheck,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import Reveal from './Reveal'
 
 type SubService = {
   title: string
@@ -131,6 +130,13 @@ function TopicBlock({ topic, index }: { topic: Topic; index: number }) {
   })
   // Progress bar fills as the right column scrolls through the sub-services.
   const fill = useTransform(scrollYProgress, [0, 1], ['8%', '100%'])
+  // Fade the sticky title in as the block enters and out as it leaves.
+  const titleOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.12, 0.85, 1],
+    [0, 1, 1, 0],
+  )
+  const titleY = useTransform(scrollYProgress, [0, 0.12], [24, 0])
 
   return (
     <div
@@ -138,7 +144,10 @@ function TopicBlock({ topic, index }: { topic: Topic; index: number }) {
       className="grid grid-cols-1 gap-8 border-t border-ink/10 py-14 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-16 md:py-20"
     >
       {/* Left: sticky title column */}
-      <div className="md:sticky md:top-28 md:h-fit md:self-start">
+      <motion.div
+        style={{ opacity: titleOpacity, y: titleY }}
+        className="md:sticky md:top-28 md:h-fit md:self-start"
+      >
         <span className="inline-flex w-fit items-center gap-2 rounded-full border border-ink/10 bg-white/60 px-4 py-1.5 text-sm text-muted">
           <span className="text-orange">;</span>
           {topic.kicker}
@@ -161,34 +170,53 @@ function TopicBlock({ topic, index }: { topic: Topic; index: number }) {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Right: vertical scroll of specific services */}
       <div className="flex flex-col gap-5">
-        {topic.items.map((item, i) => {
-          const Icon = item.Icon
-          return (
-            <Reveal key={item.title} delay={i * 0.05}>
-              <article className="group rounded-3xl border border-ink/10 bg-white/70 p-7 shadow-sm transition-colors hover:border-orange/40 md:p-8">
-                <div className="flex items-start gap-5">
-                  <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-orange/15 text-orange">
-                    <Icon size={26} />
-                  </span>
-                  <div>
-                    <h4 className="font-display text-xl font-semibold text-ink md:text-2xl">
-                      {item.title}
-                    </h4>
-                    <p className="mt-3 text-pretty text-base leading-relaxed text-muted">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              </article>
-            </Reveal>
-          )
-        })}
+        {topic.items.map((item) => (
+          <FadeCard key={item.title} item={item} />
+        ))}
       </div>
     </div>
+  )
+}
+
+function FadeCard({ item }: { item: SubService }) {
+  const ref = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  })
+  // Fade each card in as it enters the viewport and out as it leaves.
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.25, 0.75, 1],
+    [0, 1, 1, 0],
+  )
+  const y = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [40, 0, 0, -40])
+  const Icon = item.Icon
+
+  return (
+    <motion.article
+      ref={ref}
+      style={{ opacity, y }}
+      className="group rounded-3xl border border-ink/10 bg-white/70 p-7 shadow-sm transition-colors hover:border-orange/40 md:p-8"
+    >
+      <div className="flex items-start gap-5">
+        <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-orange/15 text-orange">
+          <Icon size={26} />
+        </span>
+        <div>
+          <h4 className="font-display text-xl font-semibold text-ink md:text-2xl">
+            {item.title}
+          </h4>
+          <p className="mt-3 text-pretty text-base leading-relaxed text-muted">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    </motion.article>
   )
 }
 
