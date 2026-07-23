@@ -6,12 +6,12 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-petrol-deep pt-28 pb-20 text-cream md:pt-36 md:pb-28"
+      className="relative overflow-hidden bg-cw-primary pt-28 pb-20 text-cw-white md:pt-36 md:pb-28"
     >
       {/* subtle brand semicolon motif */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-10 top-1/2 hidden -translate-y-1/2 select-none font-display text-[26rem] font-extrabold leading-none text-orange/10 md:block"
+        className="pointer-events-none absolute -right-10 top-1/2 hidden -translate-y-1/2 select-none font-display text-[26rem] font-extrabold leading-none text-cw-secondary/10 md:block"
       >
         ;
       </div>
@@ -33,15 +33,15 @@ export default function Hero() {
           className="max-w-4xl text-balance text-4xl font-bold leading-[1.05] md:text-6xl lg:text-7xl"
         >
           Software su misura per chi produce food{' '}
-          <span className="text-orange">&amp;</span> beverage
-          <span className="text-orange">;</span>
+          <span className="text-cw-secondary">&amp;</span> beverage
+          <span className="text-cw-secondary">;</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-cream/75 md:text-xl"
+          className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-cw-white/75 md:text-xl"
         >
           Togliamo il lavoro manuale che rifate ogni settimana e costruiamo
           strumenti nuovi che fanno vendere. Partiamo dal vostro processo, non
@@ -56,7 +56,7 @@ export default function Hero() {
         >
           <Link
             to="/contatti"
-            className="group inline-flex items-center justify-center gap-2 rounded-full bg-orange px-7 py-3.5 text-base font-semibold text-white transition-transform hover:-translate-y-0.5"
+            className="group inline-flex items-center justify-center gap-2 rounded-full bg-cw-secondary px-7 py-3.5 text-base font-semibold text-cw-white transition-transform hover:-translate-y-0.5"
           >
             Prenota una call di 30 minuti
             <ArrowRight
@@ -66,7 +66,7 @@ export default function Hero() {
           </Link>
           <a
             href="#servizi"
-            className="inline-flex items-center justify-center rounded-full border border-cream/25 px-7 py-3.5 text-base font-semibold text-cream transition-colors hover:bg-cream/10"
+            className="inline-flex items-center justify-center rounded-full border border-cw-white/25 px-7 py-3.5 text-base font-semibold text-cw-white transition-colors hover:bg-cw-white/10"
           >
             Scopri i servizi
           </a>

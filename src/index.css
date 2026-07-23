@@ -17,6 +17,16 @@
   --color-background: #f7f5f1;
   --color-foreground: #1c2b30;
 
+  /* === Palette "cw" — cambia questi valori per fare le prove.
+     Usata (per ora) dalla homepage / Hero. Rispecchia quella in
+     assets/styles.css, che però NON è caricata dall'app. === */
+  --color-cw-white: #F3DCAF;     /* "bianco"     */
+  --color-cw-primary: #301c17;   /* "primario"  553523 */
+  --color-cw-secondary: #e4552a; /* "secondario" */
+  --color-cw-black: #222222;     /* "nero"       */
+  --color-cw-cream: #efece5;     /* "panna"      */
+  --color-cw-gray: #5b6b70;      /* "grigio"     */
+
   --radius: 1.25rem;
 }
 

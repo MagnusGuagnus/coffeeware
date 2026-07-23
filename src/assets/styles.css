@@ -1,11 +1,26 @@
 :root {
-    --scritte: #222222;
-    --sfondi: #0d7b8a; /*#008374;*/
+    /* === Palette — cambia questi valori per fare le prove === */
+    --cw-white: #e7e7e7;      /* "bianco"      */
+    --cw-primary: #00000;    /* "primario"    */
+    --cw-secondary: #cf1717;  /* "secondario"  */
+    --cw-black: #222222;      /* "nero"        */
+    --cw-cream: #efece5;      /* "panna"       */
+    --cw-gray: #5b6b70;       /* "grigio"      */
+
+    /* === Colori del testo (font) === */
+    --cw-foreground: var(--cw-black);   /* titoli h1–h6           */
+    --cw-muted: var(--cw-gray);         /* testo dei paragrafi     */
+    --cw-text-muted: var(--cw-gray);    /* testo secondario / card */
+
+    /* === Alias legacy: il resto del CSS continua a funzionare e
+       reagisce alle prove sulla palette qui sopra === */
+    --scritte: var(--cw-black);
+    --sfondi: var(--cw-primary);
     --sfondi-scuri: #096571;
     --sfondi-piu-scuri: #08655a;
-    --scritte-meno-importanti: #6f6f6f;
-    --bianco-scuro: #e7e7e7;
-    --colore-secondario: #cf1717;
+    --scritte-meno-importanti: var(--cw-gray);
+    --bianco-scuro: var(--cw-white);
+    --colore-secondario: var(--cw-secondary);
     --caratteristiche-non-presenti: #c0c0c0;
 }
 
