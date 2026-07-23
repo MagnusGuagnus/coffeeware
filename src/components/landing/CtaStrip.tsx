@@ -1,9 +1,8 @@
 import { Coffee } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import Reveal from './Reveal'
-import { useContact } from '../contact/ContactContext'
 
 export default function CtaStrip() {
-  const { open: openContact } = useContact()
   return (
     <section id="contatti" className="relative scroll-mt-24 overflow-hidden">
       <img
@@ -25,14 +24,13 @@ export default function CtaStrip() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt.
           </p>
-          <button
-            type="button"
-            onClick={() => openContact('call')}
+          <Link
+            to="/contatti"
             className="group mt-9 inline-flex items-center justify-center gap-2 rounded-full bg-orange px-8 py-4 text-base font-semibold text-white transition-transform hover:-translate-y-0.5"
           >
             <Coffee size={20} />
             Prenota una call
-          </button>
+          </Link>
         </Reveal>
       </div>
     </section>

@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
-import { useContact } from '../contact/ContactContext'
 
 const NAV = [
   { label: 'Servizi', to: '/servizi' },
   { label: 'Team', to: '/team' },
   { label: 'Coffee Breakers', to: '/#coffee-breakers', hash: true },
+  { label: 'Contatti', to: '/contatti' },
 ]
 
 type SiteHeaderProps = {
@@ -18,7 +18,6 @@ type SiteHeaderProps = {
 export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const { open: openContact } = useContact()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16)
@@ -66,13 +65,12 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
         </nav>
 
         <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => openContact('call')}
+          <Link
+            to="/contatti"
             className="hidden rounded-full bg-orange px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform hover:-translate-y-0.5 md:inline-flex"
           >
             Prenota una call
-          </button>
+          </Link>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -120,16 +118,13 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
                   </Link>
                 ),
               )}
-              <button
-                type="button"
-                onClick={() => {
-                  setOpen(false)
-                  openContact('call')
-                }}
+              <Link
+                to="/contatti"
+                onClick={() => setOpen(false)}
                 className="mt-4 rounded-full bg-orange px-5 py-3 text-center text-base font-semibold text-white"
               >
                 Prenota una call
-              </button>
+              </Link>
             </nav>
           </motion.div>
         )}
